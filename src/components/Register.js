@@ -2,7 +2,6 @@ import React from 'react';
 import './Register.css';
 import firebase from'../firebase.js';
 import {Link} from 'react-router-dom';
-import Login from './Login';
 
 class Register extends React.Component{
     constructor(props){
