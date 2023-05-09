@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import Chatbox from './components/Chatbox';
+import {Link} from 'react-router-dom';
 
 class App extends React.Component{
   constructor(props){
@@ -27,12 +28,24 @@ render() {
   return (
     <div className="App">
      <h1>Chat app</h1>
+
+     {this.props.user &&
+     <div className="allow-chat">
      <Chatbox items={this.state.items}/>
      <form className='message-form' onSubmit={this.onSubmit}>
       <input value={this.state.term} onChange={this.onChange}/>
       <button>Send</button>
      </form>
      </div>
+    }
+    {!this.props.user &&(
+      <div className="disallow-chat">
+        <p>
+          <Link to="/Login">Login</Link> or <Link to="/register">Register</Link>to start chatting!
+        </p>
+      </div>
+    )}
+    </div>
   );
 }
 }
