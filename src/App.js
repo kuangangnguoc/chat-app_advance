@@ -3,6 +3,9 @@ import React from 'react';
 import Chatbox from './components/Chatbox';
 import {Link} from 'react-router-dom';
 import firebase from './firebase';
+import Lottie from 'lottie-react';
+import cat from "./cat.json";
+import 'bulma/css/bulma.min.css';
 
 class App extends React.Component{
   constructor(props){
@@ -33,8 +36,13 @@ class App extends React.Component{
 
 render() {
   return (
+    
     <div className="App">
-     <h1>Chat app</h1>
+     <div className="lottie-container">
+  <Lottie animationData={cat}/>
+</div>
+     <h1 class="title is-family-sans-serif is-uppercase has-text-weight-semibold has-text-info is-size-1" >
+      Chit chat</h1>
 
      {this.props.user &&
      <div className="allow-chat">
@@ -53,9 +61,19 @@ render() {
     }
     {!this.props.user &&
       <div className="disallow-chat">
-        <p>
-          <Link to="/Login">Login</Link> or <Link to="/register">Register</Link> to start chatting!
-        </p>
+       
+  <p className="has-text-centered pb-4 is-capitalized">
+    to start chatting!
+  </p>
+  <div className="buttons is-centered">
+    <Link to="/Login" className="button is-link is-light p-4 m-4">
+      Login
+    </Link>
+    <Link to="/register" className="button is-link p-4 m-4">
+      Register
+    </Link>
+
+</div>
       </div>
     }
     </div>

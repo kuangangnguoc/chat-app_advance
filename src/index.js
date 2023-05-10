@@ -29,12 +29,6 @@ class AppRouter extends React.Component{
       <Router>
         <div className='app'>
           <nav className='main-nav'>
-            {!this.state.user &&
-            <div>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-            </div>
-            }
             {this.state.user &&
             <a href="#!" onClick={this.logOutUser}>Log out</a>
           }
