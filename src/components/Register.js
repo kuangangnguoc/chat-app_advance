@@ -1,7 +1,7 @@
 import React from 'react';
-import './Register.css';
 import firebase from'../firebase.js';
 import {Link} from 'react-router-dom';
+import 'bulma/css/bulma.min.css';
 
 class Register extends React.Component{
     constructor(props){
@@ -35,27 +35,39 @@ class Register extends React.Component{
     render(){
         const {email, username, password, error}=this.state;
         return(
-            <div className="auth-container">
-                <h1>Register your account</h1>
-                {error && <p className="error-message">{error.message}</p>}
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" id="username" value={username} onChange={this.handleChange}></input>
-                    <label htmlFor="email">Email address</label>
-                    <input type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
-                    <label htmlFor="password">Choose a password</label>
-                    <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    >
-                    </input>
-                    <button className="submit">Get started</button>
-                    <p>Already have an account? <Link className="login-btn" to="/login">Login here</Link></p>
-                </form>
-            </div>
+           
+            <div className="auth-container is-flex is-justify-content-center is-align-items-center">
+  
+  {error && <p className="error-message">{error.message}</p>}
+  <form onSubmit={this.handleSubmit} className="form is-size-5" style={{ width: '700px' }}>
+    <div class="box-body">
+  
+      <div class="columns is-flex is-flex-direction-column box">
+      <h1 class="title  has-text-weight-semibold has-text-info is-size-3" >Register your account</h1>
+        <div class="column">
+          <label htmlFor="username" className="label">Username</label>
+          <input class="input is-info" type="text" name="username" id="username" value={username} onChange={this.handleChange} className="input"></input>
+        </div>
+        <div class="column">
+          <label htmlFor="email" className="label">Email address</label>
+          <input class="input is-info" type="text" name="email" id="email" value={email} onChange={this.handleChange} className="input"></input>
+        </div>
+        <div class="column">
+          <label htmlFor="password" className="label">Choose a password</label>
+          <input class="input is-info" type="password" name="password" id="password" value={password} onChange={this.handleChange} className="input"></input>
+        </div>
+        <div class="column">
+          <button class="button is-link is-fullwidth " type="submit">Create an account</button>
+        </div>
+        <div class="has-text-centered">
+          <p> Already have an account? <Link className="button is-text has-text-info" to="/login">Login here</Link> 
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
         );
     }
 }

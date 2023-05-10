@@ -1,5 +1,4 @@
 import React from "react";
-import './Login.css'
 import firebase from'../firebase.js';
 import {Link} from 'react-router-dom';
 
@@ -28,26 +27,39 @@ class Login extends React.Component{
     render(){
         const {email, password, error}=this.state;
         return(
-            <div className="auth-container">
-                <h1>Login</h1>
-                <p>Login to access your account</p>
-                {error && <p className="error-message">{error.message}</p>}
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="email">Email address</label>
-                    <input type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
-                    <label htmlFor="password">Password</label>
-                    <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    >
-                    </input>
-                    <button className="submit">Login</button>
-                    <p>Don't have an account? <Link className="login-btn" to="/register">Register here</Link>.</p>
-                </form>
-            </div>
+            <div className="auth-container is-flex is-justify-content-center is-align-items-center">
+  
+            {error && <p className="error-message">{error.message}</p>}
+            <form onSubmit={this.handleSubmit} className="form is-size-5" style={{ width: '700px' }}>
+              <div class="box-body">
+            
+                <div class="columns is-flex is-flex-direction-column box">
+                <h1 class="title  has-text-weight-semibold has-text-info is-size-3" >Login</h1>
+                  <p>Login to access your account</p>
+                  <div class="column">
+                    <label htmlFor="email" className="label">Email address</label>
+                    <input class="input is-info" type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
+                  </div>
+                  <div class="column">
+                    <label htmlFor="password" className="label">Password</label>
+                    <input class="input is-info" type="password"
+                              name="password"
+                              id="password"
+                              value={password}
+                              onChange={this.handleChange}>
+              </input>
+                  </div>
+                  <div class="column">
+                    <button class="button is-link is-fullwidth " type="submit">Login</button>
+                  </div>
+                  <div class="has-text-centered">
+                    <p> Don't have an account? <Link className="button is-text has-text-info" to="/registe">Register here</Link> 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
         );
     }
 }
