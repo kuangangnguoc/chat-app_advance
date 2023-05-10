@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from'../firebase.js';
 import {Link} from 'react-router-dom';
 import 'bulma/css/bulma.min.css';
+import Add from "../img/addAvatar.png";
 
 class Register extends React.Component{
     constructor(props){
@@ -46,16 +47,21 @@ class Register extends React.Component{
       <h1 class="title  has-text-weight-semibold has-text-info is-size-3" >Register your account</h1>
         <div class="column">
           <label htmlFor="username" className="label">Username</label>
-          <input class="input is-info" type="text" name="username" id="username" value={username} onChange={this.handleChange} className="input"></input>
+          <input class="input is-info" type="text" name="username" id="username" value={username} onChange={this.handleChange} ></input>
         </div>
         <div class="column">
           <label htmlFor="email" className="label">Email address</label>
-          <input class="input is-info" type="text" name="email" id="email" value={email} onChange={this.handleChange} className="input"></input>
+          <input class="input is-info" type="text" name="email" id="email" value={email} onChange={this.handleChange} ></input>
         </div>
         <div class="column">
           <label htmlFor="password" className="label">Choose a password</label>
-          <input class="input is-info" type="password" name="password" id="password" value={password} onChange={this.handleChange} className="input"></input>
+          <input class="input is-info" type="password" name="password" id="password" value={password} onChange={this.handleChange} ></input>
         </div>
+        <input style={{display:"none"}}type="file" id="file"/>
+        <lable htmlFor="file">
+        <img src={Add} alt=""/>
+        <span className="is-align-items-center">Add an avatar</span>
+        </lable>
         <div class="column">
           <button class="button is-link is-fullwidth " type="submit">Create an account</button>
         </div>
