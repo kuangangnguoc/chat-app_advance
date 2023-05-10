@@ -38,11 +38,7 @@ render() {
   return (
     
     <div className="App">
-     <div className="lottie-container">
-  <Lottie animationData={cat}/>
-</div>
-     <h1 class="title is-family-sans-serif is-uppercase has-text-weight-semibold has-text-info is-size-1" >
-      Chit chat</h1>
+     
 
      {this.props.user &&
      <div className="allow-chat">
@@ -61,8 +57,12 @@ render() {
     }
     {!this.props.user &&
       <div className="disallow-chat">
-       
-  <p className="has-text-centered pb-4 is-capitalized">
+       <div className="lottie-container" style={{width: '500px', height: '500px'}}>
+  <Lottie animationData={cat}/>
+</div>
+     <h1 class="title is-family-sans-serif is-uppercase has-text-weight-semibold has-text-info is-size-1" >
+      Chit chat</h1>
+  <p className="start-Chat has-text-centered pb-4 is-capitalized">
     to start chatting!
   </p>
   <div className="buttons is-centered">

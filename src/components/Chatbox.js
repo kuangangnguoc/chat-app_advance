@@ -7,8 +7,7 @@ class Chatbox extends React.Component{
         super(props);
         this.state ={
             chats:[]
-        }
-    }
+        }}
     componentDidMount(){
         const chatRef = firebase.database().ref('general');
         chatRef.on('value',snapshot=>{
@@ -21,14 +20,10 @@ class Chatbox extends React.Component{
                         message:getChats[chat].message,
                         user:getChats[chat].user,
                         date:getChats[chat].timestamp
-                    });
-                }
-            }
+                    });}}
         const chats=ascChats.reverse();
         this.setState({chats});
-        });
-    }
-
+        });}
     render(){
         return(
             <div className="chatbox">
@@ -41,12 +36,8 @@ class Chatbox extends React.Component{
                             <strong>{chat.user}:</strong>
                             {chat.message}
                         </li>
-                    )
-                    })}
+                    )})}
                 </ul>
-
             </div>
-        );
-    }
-}
+        );}}
 export default Chatbox;

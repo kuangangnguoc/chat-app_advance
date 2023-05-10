@@ -1,23 +1,20 @@
 .App {
   text-align: center;
 }
-
-.App h1{
-  position: absolute;
-  top:330px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.disallow-chat{
-  position: absolute;
-  top:400px;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .lottie-container {
   position: absolute;
   top:-10px;
   left: 50%;
   transform: translateX(-50%);
+}
+.App h1{
+  position: absolute;
+  top:250px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.App p{
+ margin-top:330px;
+
 }
 

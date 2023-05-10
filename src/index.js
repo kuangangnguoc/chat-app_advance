@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from'./components/Login';
 import Register from'./components/Register';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase, {auth} from './firebase.js';
 
 class AppRouter extends React.Component{ 
