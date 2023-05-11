@@ -27,7 +27,7 @@ class Login extends React.Component{
     render(){
         const {email, password, error}=this.state;
         return(
-            <div className="auth-container is-flex is-justify-content-center is-align-items-center">
+            <div className="auth-container is-flex is-justify-content-center is-align-items-center mt-6">
   
             {error && <p className="error-message">{error.message}</p>}
             <form onSubmit={this.handleSubmit} className="form is-size-5" style={{ width: '700px' }}>
@@ -53,7 +53,7 @@ class Login extends React.Component{
                     <button class="button is-link is-fullwidth " type="submit">Login</button>
                   </div>
                   <div class="has-text-centered">
-                    <p> Don't have an account? <Link className="button is-text has-text-info" to="/registe">Register here</Link> 
+                    <p> Don't have an account? <Link className="button is-text has-text-info" to="/register">Register here</Link> 
                     </p>
                   </div>
                 </div>

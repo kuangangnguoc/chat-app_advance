@@ -7,6 +7,7 @@ import Lottie from 'lottie-react';
 import cat from "./cat.json";
 import 'bulma/css/bulma.min.css';
 
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -43,26 +44,36 @@ render() {
      {this.props.user &&
      <div className="allow-chat">
      <Chatbox/>
-     <form className='message-form' onSubmit={this.onSubmit}>
+     <form className='message-form has-background-white-ter p-5' onSubmit={this.onSubmit} style={{position: 'fixed', bottom: 0, left: 0, right: 0}}>
+  <div className="field is-grouped " >
+    <div className="control is-expanded is-5" >
       <input 
-      type="text"
-      name="message"
-      id="message"
-      value={this.state.message}
-      placeholder="Enter a message..."
-       onChange={this.onChange}/>
-      <button>Send</button>
-     </form>
+        className="input"
+        type="text"
+        name="message"
+        id="message"
+        value={this.state.message}
+        placeholder="Enter a message..."
+        onChange={this.onChange}
+      />
+    </div>
+    <div className="control mr-1">
+      <button type="submit" className="button is-info is-hovered px-4" >Send</button>
+    </div>
+  </div>
+</form>
+
      </div>
     }
+
     {!this.props.user &&
       <div className="disallow-chat">
        <div className="lottie-container" style={{width: '500px', height: '500px'}}>
-  <Lottie animationData={cat}/>
+  <Lottie animationData={cat} />
 </div>
      <h1 class="title is-family-sans-serif is-uppercase has-text-weight-semibold has-text-info is-size-1" >
       Chit chat</h1>
-  <p className="start-Chat has-text-centered pb-4 is-capitalized">
+  <p className=" has-text-centered pb-4 is-capitalized">
     to start chatting!
   </p>
   <div className="buttons is-centered">

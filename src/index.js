@@ -7,6 +7,8 @@ import Login from'./components/Login';
 import Register from'./components/Register';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import firebase, {auth} from './firebase.js';
+import Lottie from 'lottie-react';
+import cat from "./cat.json";
 
 class AppRouter extends React.Component{ 
   constructor(props){
@@ -28,11 +30,20 @@ class AppRouter extends React.Component{
     return(
       <Router>
         <div className='app'>
-          <nav className='main-nav'>
-            {this.state.user &&
-            <a href="#!" onClick={this.logOutUser}>Log out</a>
-          }
-          </nav>
+        
+  {this.state.user &&
+  <nav className='main-nav has-background-info-light pt-4'>
+    <div className="is-flex is-justify-content-space-between px-3">
+      <div style={{width: '100px', height: '100px'}}><Lottie animationData={cat}/></div>
+      <h2 className="has-text-info is-size-6">ChitChat</h2>
+      <a href="#!" onClick={this.logOutUser} className="is-size-6">Log out</a>
+    </div>
+    </nav>
+  }
+
+
+
+
           <Switch>
             <Route  path="/" exact render={()=><App user={this.state.user}/>}/>
             <Route  path="/login" exact component={Login}/>

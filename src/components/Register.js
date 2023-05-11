@@ -2,7 +2,6 @@ import React from 'react';
 import firebase from'../firebase.js';
 import {Link} from 'react-router-dom';
 import 'bulma/css/bulma.min.css';
-import Add from "../img/addAvatar.png";
 
 class Register extends React.Component{
     constructor(props){
@@ -37,7 +36,7 @@ class Register extends React.Component{
         const {email, username, password, error}=this.state;
         return(
            
-            <div className="auth-container is-flex is-justify-content-center is-align-items-center">
+            <div className="auth-container is-flex is-justify-content-center is-align-items-center mt-6">
   
   {error && <p className="error-message">{error.message}</p>}
   <form onSubmit={this.handleSubmit} className="form is-size-5" style={{ width: '700px' }}>
@@ -57,11 +56,6 @@ class Register extends React.Component{
           <label htmlFor="password" className="label">Choose a password</label>
           <input class="input is-info" type="password" name="password" id="password" value={password} onChange={this.handleChange} ></input>
         </div>
-        <input style={{display:"none"}}type="file" id="file"/>
-        <lable htmlFor="file">
-        <img src={Add} alt=""/>
-        <span className="is-align-items-center">Add an avatar</span>
-        </lable>
         <div class="column">
           <button class="button is-link is-fullwidth " type="submit">Create an account</button>
         </div>

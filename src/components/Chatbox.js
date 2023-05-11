@@ -26,18 +26,20 @@ class Chatbox extends React.Component{
         });}
     render(){
         return(
-            <div className="chatbox">
-                <ul className="chat-list">
-                    {this.state.chats.map(chat=>{
-                        const postDate = new Date(chat.date);
-                    return(
-                        <li key={chat.id}>
-                            <em>{postDate.getDate()+'/'+(postDate.getMonth()+1)}</em>
-                            <strong>{chat.user}:</strong>
-                            {chat.message}
-                        </li>
-                    )})}
-                </ul>
-            </div>
+            <div className="chatbox pb-4 pt-4">
+  <ul className="chat-list">
+    {this.state.chats.map(chat=>{
+      const postDate = new Date(chat.date);
+      return(
+        <li key={chat.id}>
+          <em className="has-text-grey-light mr-2">{postDate.getDate()+'/'+(postDate.getMonth()+1)}</em>
+          <strong className="has-text-link">{chat.user}:</strong>
+          {chat.message}
+        </li>
+      )
+    })}
+  </ul>
+</div>
+
         );}}
 export default Chatbox;
