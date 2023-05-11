@@ -32,13 +32,14 @@ class AppRouter extends React.Component{
         <div className='app'>
         
   {this.state.user &&
-  <nav className='main-nav has-background-info-light pt-4'>
-    <div className="is-flex is-justify-content-space-between px-3">
-      <div style={{width: '100px', height: '100px'}}><Lottie animationData={cat}/></div>
-      <h2 className="has-text-info is-size-6">ChitChat</h2>
-      <a href="#!" onClick={this.logOutUser} className="is-size-6">Log out</a>
-    </div>
-    </nav>
+  <nav className='main-nav bg-gray-800 text-white py-4 px-6'>
+  <div className="flex items-center justify-between">
+    <div className="w-20 h-20 mr-2"><Lottie animationData={cat}/></div>
+    <h1 className="text-lg font-bold">ChitChat</h1>
+    <a href="#!" onClick={this.logOutUser} className="text-gray-400 hover:text-white">Log out</a>
+  </div>
+</nav>
+
   }
 
 

@@ -1,11 +1,11 @@
-import './App.css';
+import './index.css';
 import React from 'react';
 import Chatbox from './components/Chatbox';
 import {Link} from 'react-router-dom';
 import firebase from './firebase';
 import Lottie from 'lottie-react';
 import cat from "./cat.json";
-import 'bulma/css/bulma.min.css';
+
 
 
 class App extends React.Component{
@@ -44,11 +44,10 @@ render() {
      {this.props.user &&
      <div className="allow-chat">
      <Chatbox/>
-     <form className='message-form has-background-white-ter p-5' onSubmit={this.onSubmit} style={{position: 'fixed', bottom: 0, left: 0, right: 0}}>
-  <div className="field is-grouped " >
-    <div className="control is-expanded is-5" >
+     <div className="bg-gray-200 fixed bottom-0 w-full py-10 shadow-lg">
+     <form className='px-2 containerWrap flex mb-5' onSubmit={this.onSubmit} style={{position: 'fixed', bottom: 0, left: 0, right: 0}}>
       <input 
-        className="input"
+        className="input input w-full focus:outline-none bg-gray-100 rounded-r"
         type="text"
         name="message"
         id="message"
@@ -56,34 +55,29 @@ render() {
         placeholder="Enter a message..."
         onChange={this.onChange}
       />
-    </div>
-    <div className="control mr-1">
-      <button type="submit" className="button is-info is-hovered px-4" >Send</button>
-    </div>
-  </div>
+      <button type="submit" className="w-auto bg-secondary text-white rounded-r-lg px-5 text-sm" >Send</button>
 </form>
-
+</div>
      </div>
     }
 
     {!this.props.user &&
       <div className="disallow-chat">
-       <div className="lottie-container" style={{width: '500px', height: '500px'}}>
+       <div className="lottie-container mx-auto my-auto" style={{width: '500px', height: '500px'}}>
   <Lottie animationData={cat} />
 </div>
-     <h1 class="title is-family-sans-serif is-uppercase has-text-weight-semibold has-text-info is-size-1" >
+     <h1 class="text-sky-500 text-5xl font-bold uppercase text-center transform translate-y-[-200px] " >
       Chit chat</h1>
-  <p className=" has-text-centered pb-4 is-capitalized">
+  <p className="text-3xl  text-center transform translate-y-[-180px] ">
     to start chatting!
   </p>
-  <div className="buttons is-centered">
-    <Link to="/Login" className="button is-link is-light p-4 m-4">
-      Login
-    </Link>
-    <Link to="/register" className="button is-link p-4 m-4">
-      Register
-    </Link>
-
+  <div className="flex space-x-4 justify-center items-center transform translate-y-[-150px] ">
+  <Link to="/Login" className="btn btn-info px-6">
+    Login
+  </Link>
+  <Link to="/register" className="btn btn-outline btn-info">
+    Register
+  </Link>
 </div>
       </div>
     }

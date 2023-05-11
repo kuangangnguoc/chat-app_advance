@@ -1,45 +1,70 @@
 import React from "react";
-import './Chatbox.css';
-import firebase from'../firebase.js';
+import firebase from "../firebase.js";
+import { UserAuth } from "../context/AuthContext";
 
-class Chatbox extends React.Component{
-    constructor(props){
-        super(props);
-        this.state ={
-            chats:[]
-        }}
-    componentDidMount(){
-        const chatRef = firebase.database().ref('general');
-        chatRef.on('value',snapshot=>{
-            const getChats =snapshot.val();
-            let ascChats =[];
-            for(let chat in getChats){
-                if(getChats[chat].message !==''){
-                    ascChats.push({
-                        id:chat,
-                        message:getChats[chat].message,
-                        user:getChats[chat].user,
-                        date:getChats[chat].timestamp
-                    });}}
-        const chats=ascChats.reverse();
-        this.setState({chats});
-        });}
-    render(){
-        return(
-            <div className="chatbox pb-4 pt-4">
-  <ul className="chat-list">
-    {this.state.chats.map(chat=>{
-      const postDate = new Date(chat.date);
-      return(
-        <li key={chat.id}>
-          <em className="has-text-grey-light mr-2">{postDate.getDate()+'/'+(postDate.getMonth()+1)}</em>
-          <strong className="has-text-link">{chat.user}:</strong>
-          {chat.message}
-        </li>
-      )
-    })}
-  </ul>
-</div>
+function ChatboxContent({ chats }) {
+  const currentUser = UserAuth().currentUser;
 
-        );}}
+  return (
+    <div className="chatbox pb-44 pt-20 containerWrap">
+      <ul className="chat-list">
+        {chats.sort((a, b) => a.date - b.date).map(chat => {
+          const postDate = new Date(chat.date);
+
+          return (
+            <div
+  className={`chat ${
+    chat.user.uid === currentUser.uid ? "chat-end" : "chat-start"
+  }`}
+  key={chat.id}
+>
+
+              <div className="chat-header">
+                {chat.user}
+                <time className="text-xs opacity-50">
+                  {postDate.getDate()}/{postDate.getMonth() + 1}
+                </time>
+              </div>
+              <div className="chat-bubble">{chat.message}</div>
+            </div>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+class Chatbox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      chats: []
+    };
+  }
+
+  componentDidMount() {
+    const chatRef = firebase.database().ref("general");
+    chatRef.on("value", snapshot => {
+      const getChats = snapshot.val();
+      let ascChats = [];
+      for (let chat in getChats) {
+        if (getChats[chat].message !== "") {
+          ascChats.push({
+            id: chat,
+            message: getChats[chat].message,
+            user: getChats[chat].user,
+            date: getChats[chat].timestamp
+          });
+        }
+      }
+      const chats = ascChats.reverse();
+      this.setState({ chats });
+    });
+  }
+
+  render() {
+    return <ChatboxContent chats={this.state.chats} />;
+  }
+}
+
 export default Chatbox;
