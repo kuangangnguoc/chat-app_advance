@@ -55,7 +55,7 @@ render() {
         placeholder="Enter a message..."
         onChange={this.onChange}
       />
-      <button type="submit" className="w-auto bg-secondary text-white rounded-r-lg px-5 text-sm" >Send</button>
+      <button type="submit" className="w-auto bg-blue-500 hover:bg-blue-700 text-white rounded-r-lg px-5 text-sm" >Send</button>
 </form>
 </div>
      </div>
@@ -66,7 +66,7 @@ render() {
        <div className="lottie-container mx-auto my-auto" style={{width: '500px', height: '500px'}}>
   <Lottie animationData={cat} />
 </div>
-     <h1 class="text-sky-500 text-5xl font-bold uppercase text-center transform translate-y-[-200px] " >
+     <h1 className="text-sky-500 text-5xl font-bold uppercase text-center transform translate-y-[-200px] " >
       Chit chat</h1>
   <p className="text-3xl  text-center transform translate-y-[-180px] ">
     to start chatting!

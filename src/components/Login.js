@@ -32,24 +32,24 @@ class Login extends React.Component{
   
             {error && <p className="error-message">{error.message}</p>}
             <form onSubmit={this.handleSubmit} className="form mt-20 mx-auto" style={{ width: '700px' }}>
-  <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <h1 class="text-center uppercase text-sky-500 text-3xl font-bold mb-4" >Login</h1>
-    <p class="text-center mb-6">Login to access your account</p>
-    <div class="flex flex-wrap -mx-3 mb-6">
-      <div class="w-full px-3 mb-6 md:mb-0">
+  <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <h1 className="text-center uppercase text-sky-500 text-3xl font-bold mb-4" >Login</h1>
+    <p className="text-center mb-6">Login to access your account</p>
+    <div className="flex flex-wrap -mx-3 mb-6">
+      <div className="w-full px-3 mb-6 md:mb-0">
         <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email address</label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
+        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
       </div>
-      <div class="w-full px-3">
+      <div className="w-full px-3">
         <label htmlFor="password" className="block text-gray-700 font-bold mb-2">Password</label>
-        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" name="password" id="password" value={password} onChange={this.handleChange}></input>
+        <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" name="password" id="password" value={password} onChange={this.handleChange}></input>
       </div>
     </div>
-    <div class="flex items-center justify-center">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
+    <div className="flex items-center justify-center">
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
     </div>
-    <div class="text-center mt-4">
-      <p class="text-gray-600">Don't have an account? <Link className="text-blue-500 hover:text-blue-700 font-bold" to="/register">Register here</Link></p>
+    <div className="text-center mt-4">
+      <p className="text-gray-600">Don't have an account? <Link className="text-blue-500 hover:text-blue-700 font-bold" to="/register">Register here</Link></p>
     </div>
   </div>
 </form>

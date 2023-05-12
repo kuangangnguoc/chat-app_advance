@@ -12,13 +12,8 @@ function ChatboxContent({ chats }) {
           const postDate = new Date(chat.date);
 
           return (
-            <div
-  className={`chat ${
-    chat.user.uid === currentUser.uid ? "chat-end" : "chat-start"
-  }`}
-  key={chat.id}
->
-
+            <li key={chat.id} className={`chat ${chat.user === currentUser.displayName ? "chat-start" : "chat-end"
+  }`}>
               <div className="chat-header">
                 {chat.user}
                 <time className="text-xs opacity-50">
@@ -26,13 +21,14 @@ function ChatboxContent({ chats }) {
                 </time>
               </div>
               <div className="chat-bubble">{chat.message}</div>
-            </div>
+            </li>
           );
         })}
       </ul>
     </div>
   );
 }
+
 
 class Chatbox extends React.Component {
   constructor(props) {
