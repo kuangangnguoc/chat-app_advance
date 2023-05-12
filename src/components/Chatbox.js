@@ -6,8 +6,8 @@ function ChatboxContent({ chats }) {
   const currentUser = UserAuth().currentUser;
 
   return (
-    <div className="chatbox pb-44 pt-20 mx-10 containerWrap">
-      <ul className="chat-list">
+    <div className="chatbox pb-44 pt-20 containerWrap">
+      <ul className="chat-list px-16">
         {chats.sort((a, b) => a.date - b.date).map(chat => {
           const postDate = new Date(chat.date);
 
